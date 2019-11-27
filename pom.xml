@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.9.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.webapp</groupId>
+	<artifactId>WebApp</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	 <repositories>
+        <repository>
+            <id>AsposeJavaAPI</id>
+            <name>Aspose Java API</name>
+            <url>http://artifact.aspose.com/repo/</url>
+        </repository>
+    </repositories>
+	<name>WebApp</name>
+	<description>Demo project for Spring Boot</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			 <exclusions>
+            <exclusion>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-logging</artifactId>
+            </exclusion>
+        </exclusions>
+		</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jasper -->
+<dependency>
+    <groupId>org.apache.tomcat</groupId>
+    <artifactId>tomcat-jasper</artifactId>
+    <version>9.0.26</version>
+</dependency>
+<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi</artifactId>
+    <version>4.1.0</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml</artifactId>
+    <version>4.1.0</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml-schemas</artifactId>
+    <version>4.1.0</version>
+</dependency>
+	<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-scratchpad -->
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-scratchpad</artifactId>
+    <version>4.1.0</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-log4j2</artifactId>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-excelant -->
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-excelant</artifactId>
+    <version>4.1.0</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.xmlbeans/xmlbeans -->
+<dependency>
+    <groupId>org.apache.xmlbeans</groupId>
+    <artifactId>xmlbeans</artifactId>
+    <version>3.1.0</version>
+</dependency>
+
+    <dependency>
+        <groupId>com.aspose</groupId>
+        <artifactId>aspose-words</artifactId>
+        <version>19.8</version>
+        <classifier>jdk17</classifier>
+    </dependency>
+    <dependency>
+        <groupId>com.aspose</groupId>
+        <artifactId>aspose-words</artifactId>
+        <version>19.8</version>
+        <classifier>javadoc</classifier>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.aspose/aspose-cells -->
+<dependency>
+        <groupId>com.aspose</groupId>
+        <artifactId>aspose-cells</artifactId>
+        <version>19.11</version>
+    </dependency>
+    <dependency>
+        <groupId>com.aspose</groupId>
+        <artifactId>aspose-cells</artifactId>
+        <version>19.11</version>
+        <classifier>javadoc</classifier>
+    </dependency>
+    <dependency>
+        <groupId>org.bouncycastle</groupId>
+        <artifactId>bcprov-jdk15on</artifactId>
+        <version>1.60</version>
+    </dependency>  
+ 
+    <dependency>
+        <groupId>com.aspose</groupId>
+        <artifactId>aspose-cad</artifactId>
+        <version>19.9</version>        
+   </dependency>
+<dependency>
+        <groupId>com.aspose</groupId>
+        <artifactId>aspose-pdf</artifactId>
+        <version>19.10</version>
+    </dependency>
+    
+<!-- https://mvnrepository.com/artifact/com.levigo/gwt-awt -->
+<dependency>
+    <groupId>com.levigo</groupId>
+    <artifactId>gwt-awt</artifactId>
+    <version>0.0.1</version>
+</dependency>
+
+ 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

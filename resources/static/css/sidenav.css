@@ -1,0 +1,48 @@
+#mySidenav a {
+  position: absolute; /* Position them relative to the browser window */
+  left: -80px; /* Position them outside of the screen */
+  transition: 0.3s; /* Add transition on hover */
+  padding: 15px; /* 15px padding */
+  width: 100px; /* Set a specific width */
+  text-decoration: none; /* Remove underline */
+  font-size: 15px; /* Increase font size */
+  color: white; /* White text color */
+  border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+}
+
+#mySidenav a:hover {
+  left: 0; /* On mouse-over, make the elements appear as they should */
+  
+}
+
+/* The about link: 20px from the top with a green background */
+#header {
+  top: 60px;
+  background-color: #555;
+}
+
+#footer {
+  top: 120px;
+  background-color: #a9a9a9; /* Blue */
+}
+
+#iwatermark {
+  top: 220px;
+  background-color: #555; /* Red */
+}
+
+#header {
+  top: 320px;
+  background-color: #a9a9a9 /* Light Black */
+}
+
+#image{
+	top: 450px;
+	background-color: #555;
+}
+#rwatermark
+{
+	top: 550px;
+  background-color: #a9a9a9; /* Red */
+	
+}
