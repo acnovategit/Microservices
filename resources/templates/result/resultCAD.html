@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xmlns="http:www.w3.org/1999/xhtml"
+      xmlns:th="http:www.thymeleaf.org">
+<head>
+<link href ="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel ="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+<link rel ="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+	<link href="css/footer.css" rel="stylesheet" type="text/css">
+	<link href="css/card.css" rel="stylesheet" type="text/css">
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Font Awesome Icons -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  <!-- Plugin CSS -->
+  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+  <!-- Theme CSS - Includes Bootstrap -->
+  <link href="css/creative.min.css" rel="stylesheet">
+  <link href="css/modal.css" rel="stylesheet">
+
+<title>Document Uploaded</title>
+</head>
+<body id="page-top">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container">
+     <div class="row">
+     <h2 class="navbar-brand js-scroll-trigger"> Hi ,</h2> <a class="navbar-brand js-scroll-trigger" href="#page-top" th:text="${userName}"></a>
+     </div>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#perform">Perform</a>
+          </li>
+          <li class="nav-item">
+            <a  th:href="@{/logout}">Logout</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+    <!--  <header class="masthead">
+     <div class="container h-100">
+      <div class="row h-100 align-items-center justify-content-center text-center">
+      
+     <h4 class="text-white-75 font-weight-light mb-5">You have uploaded a file <a class="text-white-75 font-weight-light mb-5" th:text="${fileType}"></a> type</h4>
+	<h4 class="text-white-75 font-weight-light mb-5">The File Name is <a class="text-white-75 font-weight-light mb-5" th:text="${fileName}"></a> successfully uploaded</h4>
+      </div>
+      </div>
+      </header> -->
+      <section id="perform" class="page-section bg-dark text-white">
+       <div class="container text-center">
+       <h4 class="text-white-75 font-weight-light mb-5">The File Name is <a class="text-white-75 font-weight-light mb-5" th:text="${fileName}"></a> successfully uploaded</h4>
+      <div class="card-deck">
+      <div class="row mt-3">
+  
+  </div>
+      <div class="row">
+  
+  <div class="card">
+    <div class="card-body">
+   
+		<a th:href="@{/performCAD?action=convertToPNG}"><button type="button"  id="readHeaderCard" class="btn btn-info btn-lg" >Convert CAD files to PNG</button></a>
+		
+  	
+      <p class="card-text"></p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+<!--       <h5 class="card-title"><a href="perform?action=readFooter">Read Footer</a></h5> -->
+     <a th:href="@{/performCAD?action=convertToJPEG}"> <button type="button" id="readFooterCard" class="btn btn-info btn-lg" >Convert CAD files to JPEG</button></a>
+      <p class="card-text"></p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+<!--       <h5 class="card-title"><a href="perform?action=insertWatermark">Insert Watermark</a></h5> -->
+     <a th:href="@{/performCAD?action=convertToPDF}">	<button type="button" id="insertWatermarkCard" class="btn btn-info btn-lg">Convert CAD files to PDF</button></a>
+      <p class="card-text"></p>
+    </div>
+  </div>
+  </div>
+  <div class="row mt-3">
+  
+  </div>
+  <div class="row">
+    <div class="card">
+    <div class="card-body">
+<!--       <h5 class="card-title"><a href="perform?action=insertTextHeader">Insert into Header</a></h5> -->
+     <a th:href="@{/performCAD?action=convertAllLayersToImages}">  <button type="button" id="insertTextHeaderCard" class="btn btn-info btn-lg">Convert All layers to separate images</button></a>
+      <p class="card-text"></p>
+    </div>
+  </div>
+   <div class="card">
+    <div class="card-body">
+<!--       <h5 class="card-title"><a href="perform?action=insertImageHeader">Insert Image</a> </h5> -->
+    <a th:href="@{/performCAD?action=searchText}">    <button type="button" id="insertImageHeaderCard" class="btn btn-info btn-lg">read Text</button></a>
+      <p class="card-text"></p>
+    </div>
+  </div>
+     <div class="card">
+    <div class="card-body">
+<!--       <h5 class="card-title"><a href="perform?action=removeWatermark">Remove Watermark </a></h5> -->
+			<button type="button" id="removeWatermarkCard" class="btn btn-info btn-lg">Convert DXF to Image</button>
+      <p class="card-text"></p>
+    </div>
+  </div>
+ </div>
+  <div class="row mt-3">
+  
+   </div>
+   <div class="row">
+     <div class="card">
+    <div class="card-body">
+<!--       <h5 class="card-title"><a href="perform?action=removeWatermark">Remove Watermark </a></h5> -->
+			<button type="button" id="acceptRevisionsCard" class="btn btn-info btn-lg">Convert IFC to PNG</button>
+      <p class="card-text"></p>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-body">
+<!--       <h5 class="card-title"><a href="perform?action=removeWatermark">Remove Watermark </a></h5> -->
+			<button type="button" id="saveAsDOCCard" class="btn btn-info btn-lg">Decompose CAD Insert Object</button>
+      <p class="card-text">t</p>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-body">
+<!--       <h5 class="card-title"><a href="perform?action=removeWatermark">Remove Watermark </a></h5> -->
+			<button type="button" id="saveAsPDFCard" class="btn btn-info btn-lg">Count Vertex in Mesh Model</button>
+      <p class="card-text"></p>
+    </div>
+  </div>
+  </div>
+  
+ 
+</div>
+		  </div>
+	</section>
+	 <section class="page-section" id="contact">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h2 class="mt-0">Let's Get In Touch!</h2>
+          <hr class="divider my-4">
+<!--           <p class="text-muted mb-5">Ready to start your next project with us? Give us a call or send us an email and we will get back to you as soon as possible!</p> -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
+          <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
+          <div>+34 60282 8867</div>
+        </div>
+        <div class="col-lg-4 mr-auto text-center">
+          <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
+          <!-- Make sure to change the email address in anchor text AND the link below! -->
+          <a class="d-block" href="mailto:anup.khanvilkar@acnovate.com">anup.khanvilkar@acnovate.com</a>
+        </div>
+      </div>
+    </div>
+  
+  </section>
+    
+
+		
+		  
+		  
+			
+				
+				
+				
+			
+		
+		
+		
+		
+  <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+ 
+        <hr>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Copyright &copy; 2019 All Rights Reserved by 
+         <a href="https://acnovate.com">Acnovate Technologies PVT LTD</a>.
+            </p>
+          </div>
+
+          
+        </div>
+      </div>
+</footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/creative.min.js"></script>
+</body>
+
+</html>

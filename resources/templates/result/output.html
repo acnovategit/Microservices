@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href ="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel ="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<link rel ="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel ="stylesheet" type="text/css" href="css/sidenav.css">
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  
+  <!-- Font Awesome Icons -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<link href="css/footer.css" rel="stylesheet" type="text/css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+  <!-- Plugin CSS -->
+  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+  <!-- Theme CSS - Includes Bootstrap -->
+  <link href="css/creative.min.css" rel="stylesheet">
+<title>Output</title>
+</head>
+<body onload="showDowloadButton()">
+
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container">
+    <div class="row">
+     <h2 class="navbar-brand js-scroll-trigger"> Hi ,</h2> <a class="navbar-brand js-scroll-trigger" href="#page-top" th:text="${userName}"></a>
+     </div>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a  th:href="@{/logout}">Logout</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header class="masthead">
+
+    <div class="container h-100">
+      <div class="row h-100 align-items-center justify-content-center text-center">
+        <div class="col-lg-10 align-self-end">
+        <h1 class="text-uppercase text-white font-weight-bold">The output is</h1>
+           <p class="text-white-75"><a class="text-white-75 font-weight-light mb-5" th:text="${fileName}"></a></p>
+          <hr class="divider my-4">
+        </div>
+          <div id="mySidenav" class="sidenav">
+ 
+  <a href="perform?action=readFooter" id="footer">Read Footer</a>
+ <div id="hiddenText"> <a href="perform?action=insertwatermark" id="iwatermark">Insert Watermark</a></div>
+  <a href="perform?action=insertTextHeader" id="header">Insert into Header</a>
+   <a href="perform?action=insertImageHeader" id="image">Insert Image</a>
+    <a href="perform?action=removeWatermark" id="rwatermark">Remove Watermark</a>
+</div>
+        <div class="col-lg-8 align-self-baseline">
+<!--      <p class="text-white-75 font-weight-light mb-5" ><a class="text-white-75 font-weight-light mb-5" th:text="${message}"></a></p> -->
+          
+          <p><a th:text="${message}"></a></p>
+          <input type="text" th:attr="value=${message}" id="messageText" style="visibility:hidden;"/>
+          <div >
+          <a id="showOnWatermark" style='visibility:hidden;' href="C:\\Users\\MY PC\\Desktop\\Uploads\\" download="${fileName}">Download!</a>
+          </div>
+          <a class="btn btn-primary btn-xl js-scroll-trigger" href="/home">back</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+ 
+        <hr>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Copyright &copy; 2019 All Rights Reserved by 
+         <a href="https://acnovate.com">Acnovate Technologies PVT LTD</a>.
+            </p>
+          </div>
+
+          
+        </div>
+      </div>
+</footer>
+  
+<!--   <h3><a href="#"  th:text="${mesage}"></a></h3> -->
+  </body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html xmlns="http:www.w3.org/1999/xhtml"
+      xmlns:th="http:www.thymeleaf.org">
+<head>
+<link href ="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel ="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+<link rel ="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+	<link href="css/footer.css" rel="stylesheet" type="text/css">
+	<link href="css/card.css" rel="stylesheet" type="text/css">
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Font Awesome Icons -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  <!-- Plugin CSS -->
+  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+  <!-- Theme CSS - Includes Bootstrap -->
+  <link href="css/creative.min.css" rel="stylesheet">
+  <link href="css/modal.css" rel="stylesheet">
+
+<title>Document Uploaded</title>
+</head>
+<body id="page-top">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container">
+     <div class="row">
+     <h2 class="navbar-brand js-scroll-trigger"> Hi ,</h2> <a class="navbar-brand js-scroll-trigger" href="#page-top" th:text="${userName}"></a>
+     </div>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#perform">Perform</a>
+          </li>
+          <li class="nav-item">
+            <a  th:href="@{/logout}">Logout</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+    <!--  <header class="masthead">
+     <div class="container h-100">
+      <div class="row h-100 align-items-center justify-content-center text-center">
+      
+     <h4 class="text-white-75 font-weight-light mb-5">You have uploaded a file <a class="text-white-75 font-weight-light mb-5" th:text="${fileType}"></a> type</h4>
+	<h4 class="text-white-75 font-weight-light mb-5">The File Name is <a class="text-white-75 font-weight-light mb-5" th:text="${fileName}"></a> successfully uploaded</h4>
+      </div>
+      </div>
+      </header> -->
+      <section id="perform" class="page-section bg-dark text-white">
+       <div class="container text-center">
+       <h4 class="text-white-75 font-weight-light mb-5">The File Name is <a class="text-white-75 font-weight-light mb-5" th:text="${fileName}"></a> successfully uploaded</h4>
+      <div class="card-deck">
+      <div class="row mt-3">
+  
+  </div>
+      <div class="row">
+  
+  <div class="card">
+    <div class="card-body">
+   
+		<button type="button"  id="readHeaderCard" class="btn btn-info btn-lg" >Read Header</button>
+		
+  	
+      <p class="card-text">Prints the Text present in the Header of the Document Uploaded</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+<!--       <h5 class="card-title"><a href="perform?action=readFooter">Read Footer</a></h5> -->
+      <button type="button" id="readFooterCard" class="btn btn-info btn-lg" >Read Footer</button>
+      <p class="card-text">Prints the Text present in the Footer of the Document Uploaded</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+<!--       <h5 class="card-title"><a href="perform?action=insertWatermark">Insert Watermark</a></h5> -->
+     	<button type="button" id="insertWatermarkCard" class="btn btn-info btn-lg">Insert Watermark</button>
+      <p class="card-text">Inserts a text as watermark in the Document uploaded</p>
+    </div>
+  </div>
+  </div>
+  <div class="row mt-3">
+  
+  </div>
+  <div class="row">
+    <div class="card">
+    <div class="card-body">
+<!--       <h5 class="card-title"><a href="perform?action=insertTextHeader">Insert into Header</a></h5> -->
+      <button type="button" id="insertTextHeaderCard" class="btn btn-info btn-lg">Insert into Header</button>
+      <p class="card-text">Inserts a text into the Header for replacing existing text</p>
+    </div>
+  </div>
+   <div class="card">
+    <div class="card-body">
+<!--       <h5 class="card-title"><a href="perform?action=insertImageHeader">Insert Image</a> </h5> -->
+      <button type="button" id="insertImageHeaderCard" class="btn btn-info btn-lg">Insert Image</button>
+      <p class="card-text">Inserts an Image into the Header</p>
+    </div>
+  </div>
+     <div class="card">
+    <div class="card-body">
+<!--       <h5 class="card-title"><a href="perform?action=removeWatermark">Remove Watermark </a></h5> -->
+			<button type="button" id="removeWatermarkCard" class="btn btn-info btn-lg">Remove Watermark</button>
+      <p class="card-text">Remove the watermark from the Document Uploaded</p>
+    </div>
+  </div>
+ </div>
+  <div class="row mt-3">
+  
+   </div>
+   <div class="row">
+     <div class="card">
+    <div class="card-body">
+<!--       <h5 class="card-title"><a href="perform?action=removeWatermark">Remove Watermark </a></h5> -->
+			<button type="button" id="acceptRevisionsCard" class="btn btn-info btn-lg">Accept Revisions</button>
+      <p class="card-text">Accepts the revisions of the document</p>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-body">
+<!--       <h5 class="card-title"><a href="perform?action=removeWatermark">Remove Watermark </a></h5> -->
+			<button type="button" id="saveAsDOCCard" class="btn btn-info btn-lg">Save As .Doc</button>
+      <p class="card-text">saves the document to .docx format</p>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-body">
+<!--       <h5 class="card-title"><a href="perform?action=removeWatermark">Remove Watermark </a></h5> -->
+			<button type="button" id="saveAsPDFCard" class="btn btn-info btn-lg">Save as PDF</button>
+      <p class="card-text">saves the document to .pdf format</p>
+    </div>
+  </div>
+  </div>
+  
+ 
+</div>
+		  </div>
+	</section>
+	 <section class="page-section" id="contact">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h2 class="mt-0">Let's Get In Touch!</h2>
+          <hr class="divider my-4">
+<!--           <p class="text-muted mb-5">Ready to start your next project with us? Give us a call or send us an email and we will get back to you as soon as possible!</p> -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
+          <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
+          <div>+34 60282 8867</div>
+        </div>
+        <div class="col-lg-4 mr-auto text-center">
+          <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
+          <!-- Make sure to change the email address in anchor text AND the link below! -->
+          <a class="d-block" href="mailto:anup.khanvilkar@acnovate.com">anup.khanvilkar@acnovate.com</a>
+        </div>
+      </div>
+    </div>
+  
+  </section>
+    
+    <div id="readHeaderForm" class="modal" role="dialog">
+
+			
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h2>Please specify the type of header</h2>
+					<span class="closeReplaceText">&times;</span>
+				</div>
+				<div class="modal-body">
+				
+				
+				
+				 <select id="typeHeader">
+					<option value="HEADER_PRIMARY">Primary Header</option>
+					<option value="HEADER_FIRST">First Header</option>
+					<option value="HEADER_EVEN">Even Header</option>
+				</select>
+				<hr>
+				 <hr>
+					<input type="submit" value="Proceed" onclick="setHeaderUrl()"/>&ensp;<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button><!-- </a> -->
+				</div>
+			</div>
+			</div>
+			    <div id="replaceTextinHeaderForm" class="modal">
+
+			
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h2>Replace text in header</h2>
+					 <span class="closeReplaceText">&times;</span>
+				</div>
+				<div class="modal-body">
+				<label for ="textToBeReplaced">Text to be Replaced </label>
+				<input type="text" id="textToBeReplaced" placeholder="text to be replaced"/>
+				<hr>
+				<label for ="newText">New Text </label>
+				<input type="text" id="newText" placeholder="New Text"/>
+				<hr>
+				<label for ="typeHeader">Select Header type </label>
+				<select id="typeHeader">
+					<option value="HEADER_PRIMARY">Primary Header</option>
+					<option value="HEADER_FIRST">First Header</option>
+					<option value="HEADER_EVEN">Even Header</option>
+				</select>
+				 <hr>
+					<input type="submit" value="Proceed" onclick="setReplaceTextUrl()"/>&ensp;<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button><!-- </a> -->
+				</div>
+			</div>
+
+		</div> 
+		   <div id="insertImageinHeaderForm" class="modal">
+
+			
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h2>Insert Image in header</h2>
+					 <span class="closeInsertImage">&times;</span>
+				</div>
+			<form class="form-horizontal" method="POST" enctype="multipart/form-data" role="form" th:action="@{/performInsertImage}">
+			<table>
+				<tr><td class="text-white-75 font-weight-light mb-5">File to upload:</td><td><input type="file" name="file" /></td></tr>
+				<tr><td></td><td><input class="btn btn-primary btn-xl js-scroll-trigger" type="submit" value="Upload" /></td></tr>
+			</table>
+		</form>
+				 <hr>
+<!-- 					<input type="submit" value="Proceed" onclick="setInsertImageUrl()"/>&ensp;<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></a> -->
+				</div>
+			</div>
+
+		</div> 
+		   <div id="readFooterForm" class="modal">
+
+			
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h2>Please specify the type of Footer</h2>
+					<span class="closeFooter">&times;</span>
+				</div>
+				<div class="modal-body">
+				 
+				<select id="typeFooter">
+					<option value="FOOTER_PRIMARY">Primary Footer</option>
+					<option value="FOOTER_FIRST">First Footer</option>
+					<option value="FOOTER_EVEN">Even Footer</option>
+				</select>
+				<hr>
+				<hr>
+					<input type="submit" class="btn btn-primary" value="Proceed" onclick="setFooterUrl()"/>&ensp;<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button><!-- </a> -->
+				</div>
+			</div>
+			
+				
+				
+				
+			
+		</div>
+		   <div id="insertWatermarkForm" class="modal">
+
+			
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h2>Please enter Watermark Text</h2>
+					<span class="closeWatermark">&times;</span>
+				</div>
+				<div class="modal-body">
+				 
+				<input type="text" id="watermarkText"/>
+				<hr>
+				<hr>
+					<input type="submit" class="btn btn-primary" value="Proceed" onclick="setWMUrl()"/>&ensp;<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button><!-- </a> -->
+				</div>
+			</div>
+			
+				
+				
+				
+			
+		</div>
+		<div id="removeWatermarkForm" class="modal">
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h2>Do you want to remove watermark from the document</h2>
+					<span class="closeRMWatermark">&times;</span>
+				</div>
+				<div class="modal-body">
+				 
+				
+				<hr>
+					<input type="submit" class="btn btn-primary" value="Yes" onclick="setRMUrl()"/>&ensp;<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button><!-- </a> -->
+				</div>
+			</div>
+		</div>
+		<div id="acceptRevisionsForm" class="modal">
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h2>Do you want to Accept Revisions of the document</h2>
+					<span class="closeAcceptRev">&times;</span>
+				</div>
+				<div class="modal-body">
+				 
+				
+				<hr>
+					<input type="submit" class="btn btn-primary" value="Yes" onclick="setAcceptRevUrl()"/>&ensp;<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button><!-- </a> -->
+				</div>
+			</div>
+		</div>
+			<div id="saveAsDOCForm" class="modal">
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h2>Do you want the document to be save as .doc format</h2>
+					<span class="closeSaveAsDOC">&times;</span>
+				</div>
+				<div class="modal-body">
+				 
+				
+				<hr>
+					<input type="submit" class="btn btn-primary" value="Yes" onclick="setSaveAsDOCUrl()"/>&ensp;<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button><!-- </a> -->
+				</div>
+			</div>
+		</div>
+		<div id="saveAsPDFForm" class="modal">
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<h2>Do you want the document to be save as PDF format</h2>
+					<span class="closeSaveAsPDF">&times;</span>
+				</div>
+				<div class="modal-body">
+				 
+				
+				<hr>
+					<input type="submit" class="btn btn-primary" value="Yes" onclick="setSaveAsPDFUrl()"/>&ensp;<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button><!-- </a> -->
+				</div>
+			</div>
+		</div>
+
+  <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+ 
+        <hr>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Copyright &copy; 2019 All Rights Reserved by 
+         <a href="https://acnovate.com">Acnovate Technologies PVT LTD</a>.
+            </p>
+          </div>
+
+          
+        </div>
+      </div>
+</footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/modal.js"></script>
+  
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/creative.min.js"></script>
+</body>
+
+</html>
